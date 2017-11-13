@@ -1,5 +1,3 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -7,16 +5,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class GunStoreTest {
-    @Before
-    public void setUp() throws Exception {
-        System.out.println("Before");
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("After");
-    }
-
     @Test
     public void addGun() throws Exception {
         GunStore p = new GunStore();
