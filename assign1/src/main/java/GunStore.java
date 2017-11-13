@@ -9,7 +9,7 @@ public class GunStore {
         guns = new LinkedList<>();
     }
 
-    public void addGun(String serialNumber, String model, Type type, String power, double range, double price) {
+    public void addGun(String serialNumber, String model, Type type, Power power, double range, double price) {
         GunSpec spec = new GunSpec(model, type, power, range);
         Gun gun = new Gun(serialNumber, price, spec);
         guns.add(gun);
@@ -36,7 +36,7 @@ public class GunStore {
             if (searchSpec.getType() != gspec.getType()) {
                 continue;
             }
-            if (!Objects.equals(searchSpec.getPower(), gspec.getPower())) {
+            if (searchSpec.getPower() !=  gspec.getPower()) {
                 continue;
             }
             if (searchSpec.getRange() != gspec.getRange()) {

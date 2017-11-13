@@ -1,9 +1,10 @@
 public class GunSpec {
-    private String model, power;
+    private String model;
+    private Power power;
     private Type type;
     private double range;
 
-    public GunSpec(String model, Type type, String power, double range){
+    public GunSpec(String model, Type type, Power power, double range){
         this.model = model;
         this.type = type;
         this.power = power;
@@ -18,7 +19,7 @@ public class GunSpec {
         return type;
     }
 
-    public String getPower(){
+    public Power getPower(){
         return power;
     }
 
