@@ -1,20 +1,8 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class GunTest {
-    @Before
-    public void setUp() throws Exception {
-        System.out.println("Before");
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("After");
-    }
-
     @Test
     public void getSerialNumber() throws Exception {
         GunSpec spec = new GunSpec("Military", Type.BLUNDERBUSS, Power.LOW, 225);
