@@ -1,20 +1,8 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class GunSpecTest {
-    @Before
-    public void setUp() throws Exception {
-        System.out.println("Before");
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("After");
-    }
-
     @Test
     public void getModel() throws Exception {
         GunSpec liked = new GunSpec("Military", Type.MUSKET, Power.LOW, 22);
