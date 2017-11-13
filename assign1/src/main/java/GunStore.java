@@ -1,4 +1,3 @@
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -50,8 +49,8 @@ public class GunStore {
 
     public String toString(){
         String s = "";
-        for (int i = 0; i < guns.size(); i++){
-            s += guns.get(i) + "_/_";
+        for (Gun gun : guns) {
+            s += gun + "_/_";
         }
         return s;
     }
