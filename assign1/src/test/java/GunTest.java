@@ -1,35 +1,48 @@
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class GunTest {
+    private Gun gun;
+    private GunSpec spec;
+
+    @Before
+    public void setUp() throws Exception {
+        spec = new GunSpec("Military", Type.BLUNDERBUSS, Power.LOW, 225);
+        gun = new Gun("AC12POK", 3300, spec);
+        System.out.println("Before");
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        System.out.println("After");
+    }
+
     @Test
     public void getSerialNumber() throws Exception {
-        GunSpec spec = new GunSpec("Military", Type.BLUNDERBUSS, Power.LOW, 225);
-        Gun gun = new Gun("AC12POK", 3300, spec);
         assertEquals("AC12POK", gun.getSerialNumber());
     }
 
     @Test
     public void getPrice() throws Exception {
-        GunSpec spec = new GunSpec("Military", Type.BLUNDERBUSS, Power.LOW, 225);
-        Gun gun = new Gun("AC12POK", 3300, spec);
         assertEquals(3300, gun.getPrice(), 1);
     }
 
     @Test
     public void setPrice() throws Exception {
-        GunSpec spec = new GunSpec("Military", Type.BLUNDERBUSS, Power.NORMAL, 225);
-        Gun gun = new Gun("AC12POK", 3300, spec);
         gun.setPrice(3700);
         assertEquals(3700, gun.getPrice(), 1);
     }
 
     @Test
     public void getSpec() throws Exception {
-        GunSpec spec = new GunSpec("Military", Type.BLUNDERBUSS, Power.NORMAL, 225);
-        Gun gun = new Gun("AC12POK", 3300, spec);
-        assertEquals("MilitaryBlunderbussNormal225.0", gun.getSpec().toString());
+        assertEquals("MilitaryBlunderbussLow225.0", gun.getSpec().toString());
     }
 
+    @Test
+    public void testString() throws Exception {
+        assertEquals("AC12POK3300.0MilitaryBlunderbussLow225.0", gun.toString());
+    }
 }

@@ -1,30 +1,45 @@
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class GunSpecTest {
+    private GunSpec liked;
+    @Before
+    public void setUp() throws Exception {
+        System.out.println("Before");
+        liked = new GunSpec("Military", Type.MUSKET, Power.LOW, 22);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        System.out.println("After");
+    }
+
     @Test
     public void getModel() throws Exception {
-        GunSpec liked = new GunSpec("Military", Type.MUSKET, Power.LOW, 22);
         assertEquals("Military", liked.getModel());
     }
 
     @Test
     public void getType() throws Exception {
-        GunSpec liked = new GunSpec("Military", Type.BLUNDERBUSS, Power.GREAT, 225);
-        assertEquals("Blunderbuss", liked.getType().toString());
+        assertEquals("Musket", liked.getType().toString());
     }
 
     @Test
     public void getPower() throws Exception {
-        GunSpec liked = new GunSpec("Military", Type.BLUNDERBUSS, Power.NORMAL, 225);
-        assertEquals("Normal", liked.getPower().toString());
+        assertEquals("Low", liked.getPower().toString());
     }
 
     @Test
     public void getRange() throws Exception {
-        GunSpec liked = new GunSpec("Military", Type.BLUNDERBUSS, Power.LOW, 1100);
-        assertEquals(1100.0, liked.getRange(), 1);
+        assertEquals(22.0, liked.getRange(), 1);
+    }
+
+    @Test
+    public void testString() throws Exception {
+        assertEquals("MilitaryMusketLow22.0", liked.toString());
     }
 
 }
