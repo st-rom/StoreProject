@@ -14,11 +14,6 @@ public class GunStoreTest {
         p = new GunStore();
     }
 
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("After");
-    }
-
     @Test
     public void addGun() throws Exception {
         p.addGun("q123we", "da21", Type.BLUNDERBUSS, Power.NORMAL, 300, 9000);

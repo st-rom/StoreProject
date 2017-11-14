@@ -15,11 +15,6 @@ public class GunTest {
         System.out.println("Before");
     }
 
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("After");
-    }
-
     @Test
     public void getSerialNumber() throws Exception {
         assertEquals("AC12POK", gun.getSerialNumber());

@@ -12,11 +12,6 @@ public class GunSpecTest {
         liked = new GunSpec("Military", Type.MUSKET, Power.LOW, 22);
     }
 
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("After");
-    }
-
     @Test
     public void getModel() throws Exception {
         assertEquals("Military", liked.getModel());
