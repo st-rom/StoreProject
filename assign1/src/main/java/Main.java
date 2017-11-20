@@ -22,6 +22,16 @@ public class Main {
             System.out.println("Sorry");
         }
         System.out.println(store.getGun("q123we"));
+        System.out.println("----------------------------------");
+        Cart cart = new Cart();
+        cart.addGun(new Gun("kp67", 700, (new GunSpec("Military", Type.MUSKET,
+                Power.GREAT, 2))));
+        cart.addGun(new Gun("krp67", 900, (new GunSpec("Military", Type.MUSKET,
+                Power.GODLY, 6))));
+        System.out.println(cart.computeTotalPrice());
+        cart.setPaymentStrategy(new Privat24Payment());
+        cart.setDeliveryStrategy(new DeliveryDHL());
+        System.out.println(cart.ship());
     }
 
     private static void initializeStore(GunStore store){
