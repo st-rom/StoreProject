@@ -3,14 +3,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class CartDecoratorTest {
-    private CartDecorator cart;
+public class BonusDecoratorTest {
+    private BonusDecorator cart;
     @Before
     public void setUp() throws Exception {
         Cart c = new Cart();
-        cart = new CartDecorator(new Cart());
+        cart = new BonusDecorator(new Cart());
     }
-
     @Test
     public void setPaymentStrategy() throws Exception {
         cart.setPaymentStrategy(new Privat24Payment());
@@ -34,6 +33,8 @@ public class CartDecoratorTest {
     public void ship() throws Exception {
         cart.setPaymentStrategy(new Privat24Payment());
         cart.setDeliveryStrategy(new DeliveryDHL());
+        cart.addGun(new Gun("kr45p67", 1900, (new GunSpec("Military", Type.MUSKET,
+                Power.GODLY, 16))));
         assertEquals(true, cart.ship());
     }
 

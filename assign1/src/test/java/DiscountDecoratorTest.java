@@ -3,12 +3,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class CartDecoratorTest {
-    private CartDecorator cart;
+public class DiscountDecoratorTest {
+    private DiscountDecorator cart;
     @Before
     public void setUp() throws Exception {
         Cart c = new Cart();
-        cart = new CartDecorator(new Cart());
+        cart = new DiscountDecorator(new Cart());
     }
 
     @Test
@@ -27,13 +27,15 @@ public class CartDecoratorTest {
     public void computeTotalPrice() throws Exception {
         cart.addGun(new Gun("kr45p67", 1900, (new GunSpec("Military", Type.MUSKET,
                 Power.GODLY, 16))));
-        assertEquals(1900, cart.computeTotalPrice(), 2);
+        assertEquals(1710, cart.computeTotalPrice(), 2);
     }
 
     @Test
     public void ship() throws Exception {
         cart.setPaymentStrategy(new Privat24Payment());
         cart.setDeliveryStrategy(new DeliveryDHL());
+        cart.addGun(new Gun("kr45p67", 1900, (new GunSpec("Military", Type.MUSKET,
+                Power.GODLY, 16))));
         assertEquals(true, cart.ship());
     }
 
@@ -43,4 +45,5 @@ public class CartDecoratorTest {
                 Power.GODLY, 16))));
         assertEquals(1, cart.cartToDecorate.guns.size());
     }
+
 }
