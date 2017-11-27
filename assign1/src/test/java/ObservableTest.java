@@ -25,4 +25,10 @@ public class ObservableTest {
         assertEquals(1, o.observers.size());
     }
 
+    @Test
+    public void notifyObservers() throws Exception{
+        o.notifyObservers();
+        assertEquals("Observable", o.getClass().getSimpleName());
+    }
+
 }

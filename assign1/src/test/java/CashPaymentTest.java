@@ -15,4 +15,8 @@ public class CashPaymentTest {
         assertEquals(true, c.pay(1300));
     }
 
+    @Test
+    public void pay2() throws Exception {
+        assertEquals(false, c.pay(0));
+    }
 }

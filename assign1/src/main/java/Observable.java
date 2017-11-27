@@ -7,7 +7,8 @@ public class Observable {
         observers.add(o);
     }
 
-    public void removeObserver(Observer o){
+    public void removeObserver(Observer o)
+    {
         observers.remove(o);
     }
 
