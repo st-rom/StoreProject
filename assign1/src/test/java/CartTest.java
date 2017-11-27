@@ -46,4 +46,20 @@ public class CartTest {
         assertEquals(3, cart.guns.size());
     }
 
+    @Test
+    public void addObserver() throws Exception {
+        cart.addObserver(new User());
+        cart.addObserver(new User());
+        assertEquals(2, cart.observers.size());
+    }
+
+    @Test
+    public void removeObserver() throws Exception {
+        User u1 = new User();
+        User u2 = new User();
+        cart.addObserver(u1);
+        cart.addObserver(u2);
+        cart.removeObserver(u1);
+        assertEquals(1, cart.observers.size());
+    }
 }

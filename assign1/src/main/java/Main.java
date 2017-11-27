@@ -32,6 +32,7 @@ public class Main {
         cart.setPaymentStrategy(new Privat24Payment());
         cart.setDeliveryStrategy(new DeliveryDHL());
         System.out.println(cart.ship());
+        cart.notifyObservers();
     }
 
     private static void initializeStore(GunStore store){

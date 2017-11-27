@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart {
+public class Cart extends Observable{
     protected PaymentStrategy ps;
     protected DeliveryStrategy ds;
     protected List<Gun> guns = new ArrayList<Gun>();
